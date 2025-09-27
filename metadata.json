@@ -1,5 +1,7 @@
 {
   "name": "Copy of Gemini Code Reviewer",
   "description": "An automated code review tool that uses Gemini to review code and provide feedback.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "microphone"
+  ]
 }

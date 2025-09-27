@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Loader } from './Loader';
 
 declare global {
@@ -15,18 +15,8 @@ interface ReviewOutputProps {
   onRetry: () => void;
 }
 
-const OUTPUT_SEPARATOR = '### Predicted Output';
-
 export const ReviewOutput: React.FC<ReviewOutputProps> = ({ review, isLoading, error, onRetry }) => {
   const [copyButtonText, setCopyButtonText] = useState('Copy');
-  const [activeTab, setActiveTab] = useState<'review' | 'output'>('review');
-
-  const { reviewContent, outputContent } = useMemo(() => {
-    const parts = review.split(OUTPUT_SEPARATOR);
-    const reviewPart = parts[0] || '';
-    const outputPart = parts.length > 1 ? `${OUTPUT_SEPARATOR}${parts.slice(1).join(OUTPUT_SEPARATOR)}` : '';
-    return { reviewContent: reviewPart, outputContent: outputPart };
-  }, [review]);
   
   // Configure marked to use Prism for syntax highlighting
   useEffect(() => {
@@ -51,12 +41,11 @@ export const ReviewOutput: React.FC<ReviewOutputProps> = ({ review, isLoading, e
       // Delay highlight to allow DOM to update
       setTimeout(() => window.Prism?.highlightAll(), 0);
     }
-  }, [review, activeTab, reviewContent, outputContent]);
+  }, [review]);
 
   const handleCopy = () => {
-    const textToCopy = activeTab === 'review' ? reviewContent : outputContent;
-    if (!textToCopy) return;
-    navigator.clipboard.writeText(textToCopy).then(
+    if (!review) return;
+    navigator.clipboard.writeText(review).then(
       () => {
         setCopyButtonText('Copied!');
         setTimeout(() => setCopyButtonText('Copy'), 2000);
@@ -67,20 +56,6 @@ export const ReviewOutput: React.FC<ReviewOutputProps> = ({ review, isLoading, e
       }
     );
   };
-  
-  const TabButton: React.FC<{ tabName: 'review' | 'output'; children: React.ReactNode }> = ({ tabName, children }) => (
-    <button
-      onClick={() => setActiveTab(tabName)}
-      className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-        activeTab === tabName
-          ? 'bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100'
-          : 'text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 hover:text-slate-700 dark:hover:text-slate-200'
-      }`}
-      aria-pressed={activeTab === tabName}
-    >
-      {children}
-    </button>
-  );
 
   const WelcomeMessage = () => (
     <div className="flex flex-col items-center justify-center h-full text-center p-8">
@@ -89,7 +64,7 @@ export const ReviewOutput: React.FC<ReviewOutputProps> = ({ review, isLoading, e
       </svg>
       <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300">Review Output</h2>
       <p className="text-slate-500 dark:text-slate-400 mt-2">
-        Your code or image review and predicted output will appear here.
+        Your code or image review will appear here.
       </p>
     </div>
   );
@@ -117,12 +92,11 @@ export const ReviewOutput: React.FC<ReviewOutputProps> = ({ review, isLoading, e
     if (error) return <ErrorDisplay />;
     if (!review && !isLoading) return <WelcomeMessage />;
 
-    const contentToRender = activeTab === 'review' ? reviewContent : outputContent;
-    if (!contentToRender.trim() && !isLoading) {
-      return <div className="p-6 text-slate-500 dark:text-slate-400">No {activeTab} content available.</div>;
+    if (!review.trim() && !isLoading) {
+      return <div className="p-6 text-slate-500 dark:text-slate-400">No review content available.</div>;
     }
     
-    const dirtyHtml = window.marked.parse(contentToRender);
+    const dirtyHtml = window.marked.parse(review);
     
     return (
       <div 
@@ -139,19 +113,10 @@ export const ReviewOutput: React.FC<ReviewOutputProps> = ({ review, isLoading, e
     );
   };
   
-  const showTabs = reviewContent || outputContent;
-
   return (
     <div className="flex flex-col h-full">
-      <div className="p-2 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center gap-2">
-        <div className="flex items-center gap-2">
-           {showTabs && !error && (
-             <>
-               <TabButton tabName="review">Review</TabButton>
-               {outputContent && <TabButton tabName="output">Output</TabButton>}
-             </>
-           )}
-        </div>
+      <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center gap-2">
+        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100">Review</h2>
         {review && !isLoading && !error && (
             <button
               onClick={handleCopy}

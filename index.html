@@ -11,36 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- PrismJS for syntax highlighting -->
-    <link id="dark-theme-style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" />
+    <link id="dark-theme-style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" disabled />
     <link id="light-theme-style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-coy.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
-    <script>
-      // Set theme before React loads to prevent FOUC (Flash of Unstyled Content)
-      (function() {
-        const theme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = theme === 'dark' || (!theme && systemPrefersDark);
-
-        // Set the class on the root element
-        if (isDark) {
-          document.documentElement.classList.add('dark');
-        }
-
-        // Set the correct stylesheet
-        const darkThemeStyle = document.getElementById('dark-theme-style');
-        const lightThemeStyle = document.getElementById('light-theme-style');
-
-        if (darkThemeStyle && lightThemeStyle) {
-            if (isDark) {
-                darkThemeStyle.disabled = false;
-                lightThemeStyle.disabled = true;
-            } else {
-                darkThemeStyle.disabled = true;
-                lightThemeStyle.disabled = false;
-            }
-        }
-      })();
-    </script>
     <style>
       html.dark {
         color-scheme: dark;
@@ -125,7 +98,8 @@
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
     "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1"
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-simple-code-editor": "https://aistudiocdn.com/react-simple-code-editor@^0.13.1"
   }
 }
 </script>

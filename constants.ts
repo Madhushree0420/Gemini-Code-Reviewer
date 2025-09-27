@@ -1,3 +1,4 @@
+
 import { Language } from './types';
 
 export const SUPPORTED_LANGUAGES: Language[] = [
@@ -15,4 +16,8 @@ export const SUPPORTED_LANGUAGES: Language[] = [
   { id: 'sql', name: 'SQL', extensions: ['.sql'] },
   { id: 'nosql', name: 'NoSQL', extensions: ['.json'] },
   { id: 'npm', name: 'NPM', extensions: ['package.json'] },
+  { id: 'ruby', name: 'Ruby', extensions: ['.rb'] },
+  { id: 'php', name: 'PHP', extensions: ['.php'] },
+  { id: 'swift', name: 'Swift', extensions: ['.swift'] },
+  { id: 'kotlin', name: 'Kotlin', extensions: ['.kt', '.kts'] },
 ];

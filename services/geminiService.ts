@@ -11,17 +11,14 @@ export async function* reviewCode(prompt: string, language: string, image?: Imag
   const model = "gemini-2.5-flash";
 
   const codeSystemInstruction = `You are an expert code reviewer. Analyze the following ${language} code and provide feedback.
-Structure your response in two parts, using the exact headings as specified below.
+Structure your response under the following heading:
 
 ### Code Review
-In this section, focus on these key areas:
+Focus on these key areas:
 1.  **Bugs and Errors**: Identify any potential bugs, logic errors, or edge cases that are not handled.
 2.  **Performance**: Suggest optimizations for performance, memory usage, or efficiency.
 3.  **Best Practices & Readability**: Check for adherence to common best practices, code style conventions, and overall readability. Suggest clearer names for variables and functions if needed.
 4.  **Security**: Point out any potential security vulnerabilities.
-
-### Predicted Output
-In this section, analyze the code and predict its output if it were to be executed. If the code does not produce any visible output (e.g., it's a library or a function definition), describe what the code does in simple terms.
 
 Provide your feedback in Markdown format. Use code blocks for suggestions and keep your explanations clear and concise.`;
 

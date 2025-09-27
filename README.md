@@ -2,7 +2,7 @@
 
 Ever wished you had an expert developer available 24/7 to look over your shoulder? Now you do.
 
-Gemini Code Reviewer is your personal AI assistant for writing better code and designing better systems. Just paste your code or upload a design, and get instant, expert-level feedback on everything from bugs and performance to UI/UX best practices. It's like having a senior engineer on your team, ready whenever you are.
+Gemini Code Reviewer is your personal AI assistant for writing better code and designing better systems. Paste your code, upload a design, or even dictate your thoughts, and get instant, expert-level feedback on everything from bugs and performance to UI/UX best practices. It's like having a senior engineer on your team, ready whenever you are.
 
 ## Getting Up and Running
 
@@ -10,7 +10,7 @@ Getting started is a breeze. Here's how to get the reviewer working on your loca
 
 ### What You'll Need
 
-*   A modern web browser (like Chrome, Firefox, or Safari).
+*   A modern web browser that supports the Web Speech API (like Chrome or Edge for all features).
 *   Your personal Gemini API key.
 
 ### Setup Steps
@@ -37,11 +37,10 @@ This isn't just a simple code checker. Here's what makes it special:
 
 -   🤖 **AI-Powered Code Reviews**: Get incredibly detailed feedback on potential bugs, performance bottlenecks, security risks, and ways to make your code more readable.
 -   🎨 **Design & Diagram Analysis**: It's not just for code! Upload a UI mockup, an architecture diagram, or even a screenshot, and get an expert design review.
--   🔮 **Predicted Output**: Wondering what your code will do? The "Predicted Output" tab gives you an AI-powered guess of the result or a plain-English explanation of its function.
+-   🎙️ **Voice-to-Code Dictation**: Use your microphone to dictate code or ask questions. The app transcribes your speech into text in real-time, perfect for hands-free brainstorming.
 -   ⬆️ **Effortless Uploads**: Use the upload buttons to load code and image files directly from your computer.
 -   🧠 **Smart Language Detection**: Don't worry about the dropdown. Upload a file, and we'll figure out if it's Python, JavaScript, or something else.
--   ☀️/🌙 **Light & Dark Themes**: Choose the look that's easiest on your eyes. The app remembers your choice for your next visit.
--   ✨ **Beautiful Syntax Highlighting**: Your code looks as good as it should, with clear highlighting and line numbers in both the input and output panels.
+-   ✨ **Real-time Syntax Highlighting**: The code input area is a full-featured editor that highlights your code as you type, complete with line numbers and proper indentation.
 -   📱 **Fully Responsive**: Works beautifully whether you're on a big monitor or a tablet.
 
 ## How to Use It
@@ -53,7 +52,7 @@ Ready to get your first review? It's simple.
 1.  **Pick your language** from the dropdown menu (or let the file upload do it for you).
 2.  **Paste your code** into the editor, or click **Upload File**.
 3.  Hit the **Review** button.
-4.  Watch as the AI feedback streams in on the right! You can toggle between the detailed **Review** and the **Predicted Output**.
+4.  Watch as the AI feedback streams in on the right!
 
 ### For Reviewing Images & Diagrams 🖼️
 
@@ -61,6 +60,13 @@ Ready to get your first review? It's simple.
 2.  A preview will pop up. In the text box below it, **ask a question** or provide some context (e.g., "Can you suggest improvements for this login screen?").
 3.  Hit the **Review** button.
 4.  Get instant feedback on design, usability, and architecture.
+
+### For Dictating with Audio 🎤
+
+1.  Click the **Record Audio** button. Your browser will ask for microphone permission.
+2.  Start speaking. Your words will be transcribed into the text area in real-time.
+3.  Click **Stop Recording** when you're done.
+4.  Hit the **Review** button to get feedback on your dictated text.
 
 ## Want to Contribute?
 
