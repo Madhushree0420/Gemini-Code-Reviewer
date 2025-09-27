@@ -1,70 +1,67 @@
 # Gemini Code Reviewer
 
-An interactive, web-based tool that leverages the power of the Gemini API to provide expert code and image analysis. Get instant feedback on your code's quality, best practices, and potential bugs, or get design and architecture reviews for your UI mockups and diagrams.
+Ever wished you had an expert developer available 24/7 to look over your shoulder? Now you do.
 
-## Getting Started
+Gemini Code Reviewer is your personal AI assistant for writing better code and designing better systems. Just paste your code or upload a design, and get instant, expert-level feedback on everything from bugs and performance to UI/UX best practices. It's like having a senior engineer on your team, ready whenever you are.
 
-Follow these instructions to get a copy of the project up and running on your local machine.
+## Getting Up and Running
 
-### Prerequisites
+Getting started is a breeze. Here's how to get the reviewer working on your local machine.
 
-- A modern web browser.
-- A valid Gemini API key.
+### What You'll Need
 
-### Setup and Configuration
+*   A modern web browser (like Chrome, Firefox, or Safari).
+*   Your personal Gemini API key.
 
-1.  **Clone the repository or download the files:**
-    You will need `index.html`, `index.tsx`, and all other accompanying files and directories.
+### Setup Steps
 
-2.  **Set up your API Key:**
-    This application requires a Gemini API key to function. The key must be available as an environment variable named `API_KEY`.
+1.  **Get the Code:** Make sure you have all the project files, including `index.html`, on your computer.
 
-    How you set this depends on your hosting environment. For local development with a tool like Vite or Create React App, you would typically create a `.env.local` file in the root of your project:
+2.  **Set Your API Key:** The application needs your Gemini API key to work its magic. This key should be set up as an environment variable called `API_KEY` in the environment where you're running the app.
+    *   For example, if you're using a tool like Vite for local development, you'd create a file named `.env.local` in your project folder and add this line:
+        ```
+        API_KEY=your_gemini_api_key_goes_here
+        ```
+    *   *Important:* The application is built to look for this specific variable, so make sure it's set up correctly!
 
-    ```
-    API_KEY=your_gemini_api_key_here
-    ```
-    
-    *Note: The `process.env.API_KEY` is referenced in the code and must be properly configured in your deployment or development environment for the application to work.*
-
-3.  **Running the Application:**
-    Since this is a client-side application, you can run it by opening the `index.html` file in your browser. For the best experience and to avoid potential issues with modules, it's recommended to serve the files using a simple local web server.
-
-    If you have Python installed, you can run:
+3.  **Launch the App:** You can open the `index.html` file directly in your browser. However, for the best experience, we recommend running a simple local web server. If you have Python installed, it's as easy as opening your terminal in the project folder and running:
     ```bash
-    # For Python 3
+    # For Python 3 users
     python -m http.server
     ```
-    Then, navigate to `http://localhost:8000` in your browser.
+    Then, just point your browser to `http://localhost:8000`.
 
-## Features
+## What's Inside? (Features)
 
--   **Expert Code Review**: Get detailed feedback on bugs, performance, best practices, and security vulnerabilities for a wide range of programming languages.
--   **Image Analysis**: Upload UI mockups, architecture diagrams, or even code screenshots for expert design and usability reviews.
--   **Predicted Output**: Understand what your code will do with an AI-generated prediction of its output or behavior.
--   **File Upload**: Easily load code or images from your local machine with a single click.
--   **Automatic Language Detection**: Upload a code file, and the tool will automatically detect and select the correct programming language for you.
--   **Light & Dark Mode**: Switch between themes for your comfort. Your preference is saved in `localStorage` for your next visit.
--   **Syntax Highlighting**: Code snippets in both the input and output are beautifully highlighted and include line numbers for maximum readability.
--   **Responsive Design**: A clean, modern, and responsive UI that works great on all screen sizes.
+This isn't just a simple code checker. Here's what makes it special:
 
-## How to Use
+-   🤖 **AI-Powered Code Reviews**: Get incredibly detailed feedback on potential bugs, performance bottlenecks, security risks, and ways to make your code more readable.
+-   🎨 **Design & Diagram Analysis**: It's not just for code! Upload a UI mockup, an architecture diagram, or even a screenshot, and get an expert design review.
+-   🔮 **Predicted Output**: Wondering what your code will do? The "Predicted Output" tab gives you an AI-powered guess of the result or a plain-English explanation of its function.
+-   ⬆️ **Effortless Uploads**: Use the upload buttons to load code and image files directly from your computer.
+-   🧠 **Smart Language Detection**: Don't worry about the dropdown. Upload a file, and we'll figure out if it's Python, JavaScript, or something else.
+-   ☀️/🌙 **Light & Dark Themes**: Choose the look that's easiest on your eyes. The app remembers your choice for your next visit.
+-   ✨ **Beautiful Syntax Highlighting**: Your code looks as good as it should, with clear highlighting and line numbers in both the input and output panels.
+-   📱 **Fully Responsive**: Works beautifully whether you're on a big monitor or a tablet.
 
-### Reviewing Code
+## How to Use It
 
-1.  Select the programming language from the dropdown menu.
-2.  Paste your code into the input area on the left, or click **Upload File** to load a code file from your computer.
-3.  Click the **Review** button.
-4.  The AI-generated feedback will stream into the output panel on the right. You can switch between the **Review** and **Predicted Output** tabs to see the full analysis.
+Ready to get your first review? It's simple.
 
-### Reviewing an Image
+### For Reviewing Code 👩‍💻
 
-1.  Click the **Upload Image** button and select an image file (e.g., a `.png` or `.jpg` of a UI design).
-2.  The image preview will appear in the input panel.
-3.  In the text area below the image, provide context or ask a specific question (e.g., "Please review this UI mockup for usability issues.").
-4.  Click the **Review** button.
-5.  The AI's design and architectural feedback will appear in the output panel.
+1.  **Pick your language** from the dropdown menu (or let the file upload do it for you).
+2.  **Paste your code** into the editor, or click **Upload File**.
+3.  Hit the **Review** button.
+4.  Watch as the AI feedback streams in on the right! You can toggle between the detailed **Review** and the **Predicted Output**.
 
-## Contributing
+### For Reviewing Images & Diagrams 🖼️
 
-Contributions are welcome! If you have suggestions for improvements or find any bugs, please feel free to open an issue or submit a pull request.
+1.  Click the **Upload Image** button and choose your file.
+2.  A preview will pop up. In the text box below it, **ask a question** or provide some context (e.g., "Can you suggest improvements for this login screen?").
+3.  Hit the **Review** button.
+4.  Get instant feedback on design, usability, and architecture.
+
+## Want to Contribute?
+
+We love contributions! If you have an idea for a new feature, spot a bug, or want to improve something, feel free to open an issue or submit a pull request.
